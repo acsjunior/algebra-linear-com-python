@@ -1,0 +1,134 @@
+## Casos especiais
+
+Algumas matrizes possuem estruturas ou propriedades especiais. Apresenta-se os principais casos.
+
+**Matriz quadrada** de ordem $n$ é toda matriz $n \times n$, ou seja, uma matriz que possui o mesmo número de linhas e colunas. $\mathbf{A}$, por exemplo, é uma matriz quadrada de ordem 4.
+
+$$
+\mathbf{A} = \begin{bmatrix}
+3 & 2 & 1 & 7 \\ 
+4 & 5 & 6 & 0 \\
+8 & 9 & -1 & -2 \\
+-3 & -4 & -5 & -6
+\end{bmatrix} \text{.}
+$$
+
+O conjunto $\{ 3,5,-1,-6 \}$, composto por elementos com índices $i = j$, é a diagonal principal de $\mathbf{A}$. Em contrapartida, sua diagonal secundária é o conjunto $\{ 7,6,9,-3 \}$, composto por elementos que têm a soma dos índices $ij$ igual a $n + 1$.
+
+**Matriz diagonal** é uma matriz quadrada com os elementos que não pertencem à diagonal principal iguais a zero. Por exemplo,
+
+$$
+\mathbf{D} = \begin{bmatrix}
+3 & 0 & 0 & 0 \\ 
+0 & 5 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -6
+\end{bmatrix} \text{.}
+$$
+
+**Matriz triangular inferior** é uma matriz quadrada com os elementos acima da diagonal principal iguais a zero. Por exemplo,
+
+$$
+\mathbf{L} = \begin{bmatrix}
+3 & 0 & 0 & 0 \\ 
+4 & 5 & 0 & 0 \\
+8 & 9 & -1 & 0 \\
+-3 & -4 & -5 & -6
+\end{bmatrix} \text{.}
+$$
+
+**Matriz triangular superior** é uma matriz quadrada com os elementos abaixo da diagonal principal iguais a zero. Por exemplo,
+
+$$
+\mathbf{U} = \begin{bmatrix}
+3 & 2 & 1 & 7 \\ 
+0 & 5 & 6 & 0 \\
+0 & 0 & -1 & -2 \\
+0 & 0 & 0 & -6
+\end{bmatrix} \text{.}
+$$
+
+**Matriz identidade** é uma matriz quadrada com os elementos da diagonal principal iguais a 1. Por exemplo,
+
+$$
+\mathbf{I} = \begin{bmatrix}
+1 & 0 & 0 & 0 \\ 
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix} \text{.}
+$$
+
+**Matriz zero ou nula** é uma matriz com todos os elementos iguais a zero. Por exemplo,
+
+$$
+\mathbf{Z} = \begin{bmatrix}
+0 & 0 & 0 & 0 \\ 
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{bmatrix} \text{.}
+$$
+
+**Matriz simétrica** é uma matriz tal que $a_{ij} = a_{ji}$. Adicionalmente, é uma matriz cuja linha 1 é igual à coluna 1, linha 2 igual à coluna 2, e assim sucessivamente. Por exemplo,
+
+$$
+\mathbf{S} = \begin{bmatrix}
+1 & 2 & 3 & 4 \\ 
+2 & 3 & 4 & 5 \\
+3 & 4 & 5 & 6 \\
+4 & 5 & 6 & 7
+\end{bmatrix} \text{.}
+$$
+
+::: {.example}
+Matrizes especiais em Python.
+
+Construindo a matriz quadrada $\mathbf{A}$:
+```{python}
+import numpy as np
+
+A = np.array([[3,2,1,7], [4,5,6,0], [8,9,-1,-2], [-3,-4,-5,-6]])
+A
+```
+
+Extraindo a diagonal principal de $\mathbf{A}$:
+```{python}
+np.diagonal(A)
+```
+
+Extraindo a diagonal secundária de $\mathbf{A}$:
+```{python}
+np.diagonal(np.fliplr(A))
+```
+
+Construindo a matriz diagonal $\mathbf{D}$ a partir de $\mathbf{A}$:
+```{python}
+D = np.diag(np.diagonal(A))
+D
+```
+
+Construindo a matriz triangular inferior $\mathbf{L}$ a partir de $\mathbf{A}$:
+```{python}
+L = np.tril(A)
+L
+```
+
+Construindo a matriz triangular superior $\mathbf{U}$ a partir de $\mathbf{A}$:
+```{python}
+U = np.triu(A)
+U
+```
+
+Construindo a matriz identidade $\mathbf{I_4}$ (ordem 4):
+```{python}
+I = np.identity(4)
+I
+```
+
+Construindo a matriz zero $\mathbf{Z_{4 \times 4}}$:
+```{python}
+Z = np.zeros((4,4))
+Z
+```
+:::

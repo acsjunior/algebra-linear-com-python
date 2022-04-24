@@ -1,0 +1,19 @@
+--- 
+title: "Introdução à Álgebra Linear com Python"
+author: "António C. da Silva Júnior"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+---
+
+# Prefácio {-}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id commodo ligula. Aliquam erat volutpat. Nulla tincidunt metus vehicula neque rutrum, a viverra nisi blandit. Praesent convallis faucibus ipsum, ac tincidunt ligula maximus et. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec a congue nulla. Praesent interdum gravida dictum. Phasellus non vestibulum arcu, id tempus quam. Sed a tempus mauris. Pellentesque nec nibh gravida, posuere nunc in, mattis arcu. Aliquam posuere lorem purus, at porttitor ex lacinia non. Pellentesque dolor lacus, tristique quis dui id, lobortis finibus erat. Morbi vitae tellus posuere, laoreet velit sit amet, volutpat elit.
+
+Sed ultrices at justo eu viverra. Etiam ornare viverra libero ac finibus. Donec scelerisque fermentum dolor, nec iaculis nibh mollis a. Integer iaculis sed nisi eget commodo. Suspendisse vitae porta sapien, ac finibus metus. Vivamus ligula elit, aliquet euismod arcu in, elementum varius magna. Praesent pretium porttitor imperdiet. Integer malesuada odio est, eget fringilla massa accumsan sed. Suspendisse mi eros, facilisis sit amet volutpat vel, semper in tortor. Cras nec nibh ut lorem tempus consectetur et a lectus. Nam cursus ut quam vel blandit.

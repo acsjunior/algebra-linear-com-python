@@ -1,0 +1,431 @@
+## Operações
+
+### Transposição
+
+A transposição de uma matriz reorganiza os elementos de modo que as linhas se transformam em colunas, e as colunas em linhas. Por exemplo, seja a matriz
+
+$$\mathbf{A} = \begin{bmatrix}
+1 & 2 \\ 
+3 & 4 \\
+5 & 6 \\
+7 & 8
+\end{bmatrix} \text{,}
+$$
+com dimensões $4 \times 2$, sua transposta, denotada por $\mathbf{A}^T$, é uma matriz com dimensões $2 \times 4$:
+
+$$
+\mathbf{A}^T = \begin{bmatrix}
+1 & 3 & 5 & 7 \\ 
+2 & 4 & 6 & 8
+\end{bmatrix} \text{.}
+$$.
+
+::: {.example}
+Transposição de matrizes em Python.
+
+Construindo a matriz $\mathbf{A}$:
+```{python}
+import numpy as np
+
+A = np.array([[1,2], [3,4], [5,6], [7,8]])
+A
+```
+
+
+Obtendo a transposta de $\mathbf{A}$:
+```{python}
+import numpy as np
+A.T
+```
+:::
+
+### Soma e subtração
+
+Somar e subtrair matrizes só é permitido para matrizes com as mesmas dimensões $n \times m$. Por exemplo, sejam as matrizes
+
+$$
+\mathbf{A} = \begin{bmatrix}
+1 & 2 \\ 
+3 & 4
+\end{bmatrix} \text{ e } \mathbf{B} = \begin{bmatrix}
+5 & 6 \\ 
+7 & 8
+\end{bmatrix} \text{,}
+$$
+o resultado de $\mathbf{A} + \mathbf{B}$ é uma matriz com as mesmas dimensões, em que cada elemento é o resultado da soma dos elementos correspondentes em $\mathbf{A}$ e $\mathbf{B}$, portanto,
+
+$$
+\mathbf{A} + \mathbf{B} = \begin{bmatrix}
+a_{11} + b_{11} & a_{12} + b_{12} \\ 
+a_{21} + b_{21} & a_{22} + b_{22}
+\end{bmatrix} = \begin{bmatrix}
+6 & 8 \\ 
+10 & 12
+\end{bmatrix} \text{.}
+$$
+De maneira análoga funciona a subtração:
+
+$$
+\mathbf{A} - \mathbf{B} = \begin{bmatrix}
+a_{11} - b_{11} & a_{12} - b_{12} \\ 
+a_{21} - b_{21} & a_{22} - b_{22}
+\end{bmatrix} = \begin{bmatrix}
+-4 & -4 \\ 
+-4 & -4
+\end{bmatrix}
+$$ \text{.}
+
+::: {.example}
+Soma e subtração de matrizes em Python.
+
+Construindo as matrizes $\mathbf{A}$ e $\mathbf{B}$:
+```{python}
+import numpy as np
+
+A = np.array([[1,2], [3,4]])
+A
+
+B = np.array([[5,6], [7,8]])
+B
+```
+
+Efetuando $\mathbf{A} + \mathbf{B}$:
+```{python}
+A + B
+
+np.add(A,B)
+```
+
+Efetuando $\mathbf{A} - \mathbf{B}$:
+```{python}
+A - B
+
+np.subtract(A,B)
+```
+:::
+
+### Multiplicação
+
+#### Multiplicação entre duas matrizes {#operations-matmul}
+
+Sejam as matrizes $\mathbf{A}_{n \times m}$ e $\mathbf{B}_{r \times s}$, o produto $\mathbf{AB}$ só existe se $m = s$. Em outras palavras, $\mathbf{AB}$ só existe se o número de colunas de $\mathbf{A}$ for igual ao número de linhas de $\mathbf{B}$. Por exemplo, dadas as matrizes
+
+$$\mathbf{A} = \begin{bmatrix}
+1 & 2 \\ 
+3 & 4 \\
+5 & 6 \\
+7 & 8
+\end{bmatrix} \text{ e } \mathbf{B} = \begin{bmatrix}
+1 & 2 & 3\\ 
+4 & 5 & 6
+\end{bmatrix} \text{,}
+$$
+O produto $\mathbf{AB}$ resulta em uma matriz $\mathbf{C}$ com o mesmo número de linhas de $\mathbf{A}$ e o mesmo número de colunas de $\mathbf{B}$, em que cada elemento é definido pela expressão
+
+\begin{equation} 
+  cij = \sum\limits_{k=1}^m a_{ik}b_{kj} \text{,}
+  (\#eq:operations-matmul)
+\end{equation} 
+
+com $i = \{1,2,\ldots n\}$, $j = \{1,2,\ldots s\}$, sendo $n$ o número de linhas de $\mathbf{A}$, $s$ o número de colunas de $\mathbf{B}$, e $m$ o número de colunas de $\mathbf{A}$ e o número de linhas de $\mathbf{B}$. Por exemplo,
+
+\begin{equation} 
+\begin{split}
+\mathbf{AB} & =\begin{bmatrix}
+a_{11}b_{11} + a_{12}b_{21} & a_{11}b_{12} + a_{12}b_{22} & a_{11}b_{13} + a_{12}b_{23} \\
+a_{21}b_{11} + a_{22}b_{21} & a_{21}b_{12} + a_{22}b_{22} & a_{21}b_{13} + a_{22}b_{23} \\
+a_{31}b_{11} + a_{32}b_{21} & a_{31}b_{12} + a_{32}b_{22} & a_{31}b_{13} + a_{32}b_{23} \\
+a_{41}b_{11} + a_{42}b_{21} & a_{41}b_{12} + a_{42}b_{22} & a_{41}b_{13} + a_{42}b_{23}
+\end{bmatrix} \\
+ & =\begin{bmatrix}
+(1)(1) + (2)(4) & (1)(2) + (2)(5) & (1)(3) + (2)(6) \\
+(3)(1) + (4)(4) & (3)(2) + (4)(5) & (3)(3) + (4)(6) \\
+(5)(1) + (6)(4) & (5)(2) + (6)(5) & (5)(3) + (6)(6) \\
+(7)(1) + (8)(4) & (7)(2) + (8)(5) & (7)(3) + (8)(6)
+\end{bmatrix} \\
+ & =\begin{bmatrix}
+9 & 12 & 15 \\
+19 & 26 & 33 \\
+29 & 40 & 51 \\
+39 & 54 & 69
+\end{bmatrix} \text{.}
+\end{split}
+\end{equation}
+
+Observe que o produto $\mathbf{BA}$ não existe, pois o número de colunas de $\mathbf{B}$ é diferente do número de linhas de $\mathbf{A}.$
+
+#### Multiplicação por escalar
+
+Esta operação consiste na multiplicação de uma matriz por um número real (escalar). A multiplicação de uma matriz $\mathbf{A}$ por um escalar $k$ resulta em uma matriz formada por todos os elementos de $\mathbf{A}$ multiplicados por $k$.  Por exemplo,
+
+$$
+2 \cdot \mathbf{A} = \begin{bmatrix}
+2a_{11} & 2a_{12} \\ 
+2a_{21} & 2a_{22} \\
+2a_{31} & 2a_{32} \\
+2a_{41} & 2a_{42}
+\end{bmatrix} = \begin{bmatrix}
+2 & 4 \\ 
+6 & 8 \\
+10 & 12 \\
+14 & 16
+\end{bmatrix} \text{.}
+$$
+
+#### Produto de Hadamard
+
+Esta operação só é permitida para matrizes com as mesmas dimensões $n \times m$. Por exemplo, considere a matriz
+
+$$
+\mathbf{C} = \begin{bmatrix}
+1 & 5 \\ 
+2 & 6 \\
+3 & 7 \\
+4 & 8
+\end{bmatrix}\text{,}
+$$
+o resultado de $\mathbf{A} \odot \mathbf{C}$ é uma matriz com as mesmas dimensões, em que cada elemento é o resultado da soma dos elementos correspondentes em $\mathbf{A}$ e $\mathbf{C}$, portanto,
+
+$$
+\mathbf{A} \odot \mathbf{C} =  \begin{bmatrix}
+a_{11}c_{11} & a_{12}c_{12} \\ 
+a_{21}c_{21} & a_{22}c_{22} \\
+a_{31}c_{31} & a_{32}c_{22} \\
+a_{41}c_{41} & a_{42}c_{42}
+\end{bmatrix} = \begin{bmatrix}
+1 & 10 \\ 
+6 & 24 \\
+15 & 42 \\
+28 & 64
+\end{bmatrix} \text{.}
+$$
+
+::: {.example}
+Multiplicação de matrizes em Python.
+
+Construindo as matrizes $\mathbf{A}$, $\mathbf{B}$ e $\mathbf{C}$:
+
+```{python}
+import numpy as np
+
+A = np.array([[1,2], [3,4], [5,6], [7,8]])
+A
+
+B = np.array([[1,2,3], [4,5,6]])
+B
+
+C = np.array([[1,5], [2,6], [3,7], [4,8]])
+C
+```
+
+Verificando se o produto $\mathbf{AB}$ existe:
+
+```{python}
+A.shape[1] == B.shape[0]
+```
+
+Calculando o produto $\mathbf{AB}$:
+
+```{python}
+np.matmul(A,B)
+
+A @ B
+
+np.dot(A, B)
+```
+
+Verificando se o produto $\mathbf{BA}$ existe:
+
+```{python}
+B.shape[1] == A.shape[0]
+```
+
+Efetuando $2 \cdot \mathbf{A}$:
+```{python}
+2*A
+
+np.multiply(2, A)
+
+np.dot(2, A)
+```
+
+Efetuando $A \odot \mathbf{C}$:
+```{python}
+A * C
+
+np.multiply(A, C)
+```
+:::
+
+### Inversão
+
+Uma matriz quadrada $\mathbf{A}$ de ordem $n$ é inversível se existir uma matriz quadrada $\mathbf{A}^{-1}$, também de ordem $n$, tal que $\mathbf{A}\mathbf{A}^{-1} = \mathbf{A}^{-1}\mathbf{A} = \mathbf{I}$, em que $\mathbf{I}$ é a matriz identidade. Por exemplo, dada a matriz
+
+$$
+\mathbf{A} = \begin{bmatrix}
+1 & 3 \\ 
+2 & 7
+\end{bmatrix} \text{,}
+$$
+a sua inversa $\mathbf{A}^{-1}$ é definida por $\mathbf{AA}^{-1} = \mathbf{I}$. Ou seja,
+
+$$
+\begin{bmatrix}
+1 & 3 \\ 
+2 & 7
+\end{bmatrix}\begin{bmatrix}
+a'_{11} & a'_{12} \\ 
+a'_{21} & a'_{22}
+\end{bmatrix} = \begin{bmatrix}
+1 & 0 \\ 
+0 & 1
+\end{bmatrix} \text{.}
+$$
+Calculando o produto $\mathbf{AA}^{-1}$ conforme visto em \@ref(operations-matmul), obtem-se:
+
+$$
+\begin{bmatrix}
+1 & 3 \\ 
+2 & 7
+\end{bmatrix}\begin{bmatrix}
+a'_{11} & a'_{12} \\ 
+a'_{21} & a'_{22}
+\end{bmatrix} = \begin{bmatrix}
+1a'_{11} + 3a'_{21} & 1a'_{12} + 3a'_{22}\\ 
+2a'_{11} + 7a'_{21} & 2a'_{12} + 7a'_{22} 
+\end{bmatrix} \text{.}
+$$
+Logo,
+
+$$
+\begin{bmatrix}
+1a'_{11} + 3a'_{21} & 1a'_{12} + 3a'_{22}\\ 
+2a'_{11} + 7a'_{21} & 2a'_{12} + 7a'_{22} 
+\end{bmatrix} = \begin{bmatrix}
+1 & 0 \\ 
+0 & 1
+\end{bmatrix} \text{.}
+$$
+Por definição de igualdade de matrizes, temos:
+
+$$
+\left\{
+\begin{array}{lcr}
+ a'_{11} + 3a'_{21} = 1\\
+ 2a'_{11} + 7a'_{21} = 0\\
+\end{array} 
+\right. \implies a'_{11} = 7 \text{ e } a'_{21} = -2 \text{,}
+$$
+
+$$
+\left\{
+\begin{array}{lcr}
+ a'_{12} + 3a'_{22} = 0\\
+ 2a'_{12} + 7a'_{22} = 1\\
+\end{array} 
+\right. \implies a'_{12} = -3 \text{ e } a'_{22} = 1 \text{.}
+$$
+Portanto,
+
+$$
+\mathbf{A}^{-1} = \begin{bmatrix}
+7 & -3 \\ 
+-2 & 1
+\end{bmatrix} \text{.}
+$$
+
+#### Divisão de matrizes
+
+Considere a seguinte expressão:
+
+$$
+\dfrac{b}{a} = \dfrac{1}{a} \cdot b = a^{-1}b \text{.}
+$$
+
+Observe que dividir $b$ por $a$ é o mesmo que multiplicar o inverso de $a$ por $b$.
+
+A divisão é uma operação não definida para matrizes, entretanto, a inversão serve para um propósito equivalente. Por exemplo, sejam as matrizes
+
+$$\mathbf{A} = \begin{bmatrix}
+1 & 3 \\ 
+2 & 7
+\end{bmatrix} \text{ e } \mathbf{B} = \begin{bmatrix}
+2 & 4 \\ 
+6 & 8
+\end{bmatrix} \text{.}
+$$
+O produto
+
+$$
+\mathbf{A}^{-1}\mathbf{B} = \begin{bmatrix}
+-4 & 4 \\ 
+2 & 0
+\end{bmatrix}
+$$
+equivale à divisão de $\mathbf{B}$ por $\mathbf{A}$.
+
+::: {.example}
+Inversão de matrizes em Python.
+
+Construindo as matrizes $\mathbf{A}$ e $\mathbf{B}$:
+
+```{python}
+import numpy as np
+
+A = np.array([[1,3], [2,7]])
+A
+
+B = np.array([[2,4], [6,8]])
+B
+```
+
+Obtendo a inversa $\mathbf{A}^{-1}$:
+
+```{python}
+np.linalg.inv(A)
+```
+
+Conferindo as expressões $\mathbf{A}\mathbf{A}^{-1} = \mathbf{I}$ e $\mathbf{A}^{-1}\mathbf{A} = \mathbf{I}$
+
+```{python}
+I = A @ np.linalg.inv(A)
+I
+
+I = np.linalg.inv(A) @ A
+I
+```
+
+Calculando $\mathbf{A}^{-1} \mathbf{B}$:
+
+```{python}
+np.linalg.inv(A) @ B
+```
+:::
+
+### Propriedades
+
+* $\mathbf{A} + \mathbf{B} = \mathbf{B} + \mathbf{A}$;
+
+* $(\mathbf{A} + \mathbf{B}) + \mathbf{C} = \mathbf{A} + (\mathbf{B} + \mathbf{C})$;
+
+* $k(\mathbf{A} + \mathbf{B}) = k\mathbf{A} + k\mathbf{B}$, onde $k$ é um escalar;
+
+* $(k + p)\mathbf{A} = k\mathbf{A} + p\mathbf{A}$, onde $k$ e $p$ são escalares;
+
+* Se $\mathbf{A}$ e $\mathbf{B}$ são matrizes quadradas, $\mathbf{AB} \neq \mathbf{BA}$ (ao menos que uma seja inversa da outra);
+
+* Se $\mathbf{A}$ ou $\mathbf{B}$ não for quadrada e o produto$\mathbf{AB}$ existir, então o produto $\mathbf{BA}$ não existe;
+
+* $(\mathbf{A}$ + $\mathbf{B})\mathbf{C} = \mathbf{AC} + \mathbf{BC}$;
+
+* $\mathbf{A}(\mathbf{B} + \mathbf{C}) = \mathbf{AB} + \mathbf{AC}$;
+
+* $k(\mathbf{AB}) = (k\mathbf{A})\mathbf{B} = \mathbf{A}(k\mathbf{B})$, onde $k$ é um escalar;
+
+* $(\mathbf{A}^T)^T = \mathbf{A}$;
+
+* Se o produto $\mathbf{AB}$ existe, então $(\mathbf{AB})^T = \mathbf{B}^T\mathbf{A}^T$;
+
+* Se $\mathbf{A}$ é inversível, então $(\mathbf{A}^{-1})^{-1} = \mathbf{A}$;
+
+* Se $\mathbf{A}$ e $\mathbf{B}$ são quadradas de mesma ordem e inversíveis, então $(\mathbf{AB})^{-1} = \mathbf{B}^{-1}\mathbf{A}^{-1}$.

@@ -1,0 +1,146 @@
+## Determinante
+
+O determinante de uma matriz quadrada é um escalar que fornece informações úteis quanto à existência ou não de soluções para um sistema linear. Por exemplo, seja $\mathbf{A}$ uma matriz quadrada de ordem $n=2$,
+
+$$
+\mathbf{A} = \begin{bmatrix}
+5 & 3 \\ 
+2 & 4
+\end{bmatrix} \text{.}
+$$
+O determinante de $\mathbf{A}$, denotado por $\det(\mathbf{A})$ ou $\left| \mathbf{A} \right|$, é obtido da seguinte forma:
+
+\begin{equation} 
+\begin{split}
+\det(\mathbf{A}) & = a_{11}a_{12} - a_{12}a_{21}\\
+ & = 5 \cdot 4 - 3 \cdot 2 \\
+ & = 14 \text{.}
+\end{split}
+\end{equation}
+
+Para matrizes quadradas de ordem $n = 3$, pode-se aplicar a regra de Sarrus, resumida na figura \@ref(fig:sarrus).
+
+```{r sarrus, fig.cap='Regra de Sarrus', echo=FALSE, out.width="35%", fig.align='center'}
+
+knitr::include_graphics("images/sarrus.png")
+
+# Para renderizá-la eu utilizei o código latex abaixo no Overleaf, gerei o pdf, printei a matriz e savei a imagem no diretório images.
+
+# \documentclass{minimal}
+# \usepackage{tikz}
+# \usetikzlibrary{calc,matrix}
+# 
+# \begin{document}
+#   \begin{tikzpicture}[>=stealth]
+#     \matrix [%
+#       matrix of math nodes,
+#       column sep=1em,
+#       row sep=1em
+#     ] (sarrus) {%
+#       a_{11} & a_{12} & a_{13} & a_{11} & a_{12} \\
+#       a_{21} & a_{22} & a_{23} & a_{21} & a_{22} \\
+#       a_{31} & a_{32} & a_{33} & a_{31} & a_{32} \\
+#     };
+# 
+#     \path ($(sarrus-1-1.north west)-(0.5em,0)$) edge ($(sarrus-3-1.south west)-(0.5em,0)$)
+#           ($(sarrus-1-3.north east)+(0.5em,0)$) edge ($(sarrus-3-3.south east)+(0.5em,0)$)
+#           (sarrus-1-1)                          edge            (sarrus-2-2)
+#           (sarrus-2-2)                          edge[->]        (sarrus-3-3)
+#           (sarrus-1-2)                          edge            (sarrus-2-3)
+#           (sarrus-2-3)                          edge[->]        (sarrus-3-4)
+#           (sarrus-1-3)                          edge            (sarrus-2-4)
+#           (sarrus-2-4)                          edge[->]        (sarrus-3-5)
+#           (sarrus-3-1)                          edge[dashed]    (sarrus-2-2)
+#           (sarrus-2-2)                          edge[->,dashed] (sarrus-1-3)
+#           (sarrus-3-2)                          edge[dashed]    (sarrus-2-3)
+#           (sarrus-2-3)                          edge[->,dashed] (sarrus-1-4)
+#           (sarrus-3-3)                          edge[dashed]    (sarrus-2-4)
+#           (sarrus-2-4)                          edge[->,dashed] (sarrus-1-5);
+# 
+#     \foreach \c in {1,2,3} {\node[anchor=south] at (sarrus-1-\c.north) {$+$};};
+#     \foreach \c in {1,2,3} {\node[anchor=north] at (sarrus-3-\c.south) {$-$};};
+#   \end{tikzpicture}
+# \end{document}
+```
+
+Por exemplo, seja $\mathbf{B}$ uma matriz quadrada de ordem $n = 3$,
+
+$$
+\mathbf{B} = \begin{bmatrix}
+1 & 3 & 4 \\ 
+5 & 2 & -3 \\
+1 & 4 & 2 \\
+\end{bmatrix} \text{.}
+$$
+Pela Regra de Sarrus, obtemos:
+
+\begin{equation} 
+\begin{split}
+\det(\mathbf{B}) & =a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32} - a_{31}a_{22}a_{13} - a_{32}a_{23}a_{11} - a_{33}a_{21}a_{12} \\
+ & =(1)(2)(2)+(3)(-3)(1)+(4)(5)(4) - (1)(2)(4)-(4)(-3)(1)-(2)(5)(3) \\
+ & =4-9+80-8+12-30 \\ 
+ & = 49 \text{.}
+\end{split}
+\end{equation}
+
+O cálculo do determinante pode ser generalizado por meio da expressão
+
+\begin{equation} 
+  \sum\limits_{j \in P} (-1)^k a_{1j_1}a_{2,j_2} \ldots a_{n,j_n} \text{,}
+  (\#eq:determinant)
+\end{equation} 
+
+em que $a_{1j}$ são os elementos da matriz, $n$ é a ordem da matriz, P é o conjunto com todas as $n!$ permutações e $k$ é o número de mudanças necessárias para que os segundos subscritos sejam colocados na ordem $1,2, \ldots, n$.
+
+Voltando à matriz $\mathbf{B}_{3 \times 3}$, as $n!$ permutações ficam definidas por
+
+$$
+P = \{ (1,2,3), (1,3,2), (2,1,3), (2,3,1), (3,1,2), (3,2,1) \} \text{.}
+$$
+
+Deste modo,
+
+\begin{equation} 
+\begin{split}
+\det(\mathbf{B}) & =\sum\limits_{j \in P} (-1)^k b_{1j_1}b_{2,j_2}b_{2,j_3} \\
+ & =(-1)^0 4 + (-1)^1 (-12) + (-1)^1 30 + (-1)^2 (-9) + (-1)^2 80 + (-1)^3 8 \\
+ & =4+12-30-9+80-8\\ 
+ & = 49 \text{.}
+\end{split}
+\end{equation}
+
+::: {.example}
+Cálculo do determinante em Python.
+
+Construindo as matrizes $\mathbf{A}$ e $\mathbf{B}$:
+```{python}
+import numpy as np
+import scipy.linalg as la
+
+A = np.array([[5,3], [2,4]])
+print(A)
+
+B = np.array([[1,3,4], [5,2,-3], [1,4,2]])
+print(B)
+```
+
+Obtendo $\det(\mathbf{A})$:
+```{python}
+np.linalg.det(A)
+
+la.det(A)
+```
+
+Obtendo $\det(\mathbf{B})$:
+```{python}
+np.linalg.det(B)
+
+la.det(B)
+```
+:::
+
+### Propriedades
+
+* Se $\mathbf{A}_{1 \times 1}$, então $\det(\mathbf{A})=a_{11}$;
+
+* Se $\mathbf{A}$ e $\mathbf{B}$ são matrizes quadradas, então $\det(\mathbf{AB}) = \det(\mathbf{A})\det(\mathbf{B})$.

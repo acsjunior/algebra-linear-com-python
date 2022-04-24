@@ -1,0 +1,30 @@
+book_filename: "algebra-linear-com-python"
+output_dir: "docs"
+language:
+  label:
+    fig: 'Figura '
+    tab: 'Table '
+    eq: 'Equation '
+    thm: 'Theorem '
+    lem: 'Lemma '
+    cor: 'Corollary '
+    prp: 'Proposition '
+    cnj: 'Conjecture '
+    def: 'Definition '
+    exm: 'Exemplo '
+    exr: 'Exercise '
+    hyp: 'Hypothesis '
+    proof: 'Proof. '
+    remark: 'Remark. '
+    solution: 'Solution. '
+  ui:
+    chapter_name: ""
+    appendix_name: "Apêndice "
+delete_merged_file: true
+rmd_files: [
+  "index.Rmd",
+  "content/matrices/matrices.Rmd",
+  "content/matrices/special-cases.Rmd",
+  "content/matrices/operations.Rmd",
+  "content/matrices/determinant.Rmd"
+  ]

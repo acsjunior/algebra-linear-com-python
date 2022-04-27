@@ -23,7 +23,7 @@
 <meta name="author" content="António C. da Silva Júnior" />
 
 
-<meta name="date" content="2022-04-25" />
+<meta name="date" content="2022-04-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="index.html"/>
-
+<link rel="next" href="sistemas-de-equações-lineares.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -139,20 +139,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a></li>
 <li class="chapter" data-level="1" data-path="matrizes.html"><a href="matrizes.html"><i class="fa fa-check"></i><b>1</b> Matrizes</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="matrizes.html"><a href="matrizes.html#casos-especiais"><i class="fa fa-check"></i><b>1.1</b> Casos especiais</a></li>
-<li class="chapter" data-level="1.2" data-path="matrizes.html"><a href="matrizes.html#operações"><i class="fa fa-check"></i><b>1.2</b> Operações</a>
+<li class="chapter" data-level="1.1" data-path="matrizes.html"><a href="matrizes.html#tipos-de-matrizes"><i class="fa fa-check"></i><b>1.1</b> Tipos de matrizes</a></li>
+<li class="chapter" data-level="1.2" data-path="matrizes.html"><a href="matrizes.html#matrices-operations"><i class="fa fa-check"></i><b>1.2</b> Operações</a>
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="matrizes.html"><a href="matrizes.html#transposição"><i class="fa fa-check"></i><b>1.2.1</b> Transposição</a></li>
 <li class="chapter" data-level="1.2.2" data-path="matrizes.html"><a href="matrizes.html#soma-e-subtração"><i class="fa fa-check"></i><b>1.2.2</b> Soma e subtração</a></li>
 <li class="chapter" data-level="1.2.3" data-path="matrizes.html"><a href="matrizes.html#multiplicação"><i class="fa fa-check"></i><b>1.2.3</b> Multiplicação</a></li>
-<li class="chapter" data-level="1.2.4" data-path="matrizes.html"><a href="matrizes.html#inversão"><i class="fa fa-check"></i><b>1.2.4</b> Inversão</a></li>
-<li class="chapter" data-level="1.2.5" data-path="matrizes.html"><a href="matrizes.html#propriedades"><i class="fa fa-check"></i><b>1.2.5</b> Propriedades</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="matrizes.html"><a href="matrizes.html#determinante"><i class="fa fa-check"></i><b>1.3</b> Determinante</a>
-<ul>
-<li class="chapter" data-level="1.3.1" data-path="matrizes.html"><a href="matrizes.html#propriedades-1"><i class="fa fa-check"></i><b>1.3.1</b> Propriedades</a></li>
+<li class="chapter" data-level="1.3" data-path="matrizes.html"><a href="matrizes.html#matrices-det"><i class="fa fa-check"></i><b>1.3</b> Determinante</a></li>
+<li class="chapter" data-level="1.4" data-path="matrizes.html"><a href="matrizes.html#matrices-inversion"><i class="fa fa-check"></i><b>1.4</b> Inversão</a></li>
 </ul></li>
-</ul></li>
+<li class="chapter" data-level="2" data-path="sistemas-de-equações-lineares.html"><a href="sistemas-de-equações-lineares.html"><i class="fa fa-check"></i><b>2</b> Sistemas de equações lineares</a></li>
 <li class="divider"></li>
 <li><a href="https://acsjunior.com" target="blank">Por António C. da Silva Júnior</a></li>
 
@@ -197,14 +194,14 @@ a_{11} &amp; a_{12} &amp; a_{13} \\
 a_{21} &amp; a_{22} &amp; a_{23}
 \end{bmatrix} \text{.}
 \]</span>
-Cada elemento da matriz pode ser identificado por sua localizão exclusiva. Por exemplo, <span class="math inline">\(a_{21}\)</span> referencia o elemento da segunda linha e primeira coluna de <span class="math inline">\(\mathbf{A}\)</span>, ou seja, <span class="math inline">\(a_{21} = 8\)</span>.</p>
-<p>Cada linha de uma matriz é uma matriz <span class="math inline">\(1 \times m\)</span>. A linha 2 de <span class="math inline">\(\mathbf{A}\)</span>, por exemplo, é uma matriz <span class="math inline">\(1 \times 3\)</span>:</p>
+Cada elemento da matriz pode ser identificado por sua localizão exclusiva. Por exemplo, <span class="math inline">\(a_{21}\)</span> referencia o elemento da segunda linha (<span class="math inline">\(L_2\)</span>) e primeira coluna (<span class="math inline">\(C_1\)</span>) de <span class="math inline">\(\mathbf{A}\)</span>, ou seja, <span class="math inline">\(a_{21} = 8\)</span>.</p>
+<p>Cada linha de uma matriz é uma matriz <span class="math inline">\(1 \times m\)</span>. A <span class="math inline">\(L_2\)</span> de <span class="math inline">\(\mathbf{A}\)</span>, por exemplo, é uma matriz <span class="math inline">\(1 \times 3\)</span>:</p>
 <p><span class="math display">\[
 \mathbf{L_2} = \begin{bmatrix}
 8 &amp; 3 &amp; 5
 \end{bmatrix} \text{.}
 \]</span></p>
-<p>E cada coluna de uma matriz é uma matriz <span class="math inline">\(n \times 1\)</span>. Por exemplo, a coluna 1 de <span class="math inline">\(\mathbf{B}\)</span> é uma matriz <span class="math inline">\(4 \times 1\)</span>:</p>
+<p>E cada coluna de uma matriz é uma matriz <span class="math inline">\(n \times 1\)</span>. Por exemplo, a <span class="math inline">\(C_1\)</span> de <span class="math inline">\(\mathbf{B}\)</span> é uma matriz <span class="math inline">\(4 \times 1\)</span>:</p>
 <p><span class="math display">\[
 \mathbf{C_1} = \begin{bmatrix}
 7 \\
@@ -212,8 +209,8 @@ Cada elemento da matriz pode ser identificado por sua localizão exclusiva. Por 
 11 \\
 4
 \end{bmatrix} \text{.}
-\]</span>
-Matrizes <span class="math inline">\(1 \times m\)</span> e <span class="math inline">\(n \times 1\)</span> também são conhecidas como vetores. Portanto, pode-se dizer que uma matriz <span class="math inline">\(n \times m\)</span> é composta por <span class="math inline">\(n\)</span> vetores linha ou <span class="math inline">\(m\)</span> vetores coluna.</p>
+\]</span></p>
+<p>Matrizes <span class="math inline">\(1 \times m\)</span> e <span class="math inline">\(n \times 1\)</span> também são conhecidas como vetores. Portanto, pode-se dizer que uma matriz <span class="math inline">\(n \times m\)</span> é composta por <span class="math inline">\(n\)</span> vetores linha ou <span class="math inline">\(m\)</span> vetores coluna.</p>
 <div class="example">
 <p><span id="exm:unlabeled-div-1" class="example"><strong>Exemplo 1.1  </strong></span>Primeiros passos com matrizes em Python.</p>
 <p>Importante observar que na linguagem Python os índices sempre começam em 0. Ou seja, a linha ou coluna 1 da matriz é representada pelo índice 0 em Python, a linha ou coluna 2 pelo índice 1, e assim sucessivamente.</p>
@@ -247,10 +244,10 @@ Matrizes <span class="math inline">\(1 \times m\)</span> e <span class="math inl
 <pre><code>## array([ 7,  1, 11,  4])</code></pre>
 </div>
 
-<div id="casos-especiais" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Casos especiais<a href="matrizes.html#casos-especiais" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Algumas matrizes possuem estruturas ou propriedades especiais. Apresenta-se os principais casos.</p>
-<p><strong>Matriz quadrada</strong> de ordem <span class="math inline">\(n\)</span> é toda matriz <span class="math inline">\(n \times n\)</span>, ou seja, uma matriz que possui o mesmo número de linhas e colunas. <span class="math inline">\(\mathbf{A}\)</span>, por exemplo, é uma matriz quadrada de ordem 4.</p>
+<div id="tipos-de-matrizes" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Tipos de matrizes<a href="matrizes.html#tipos-de-matrizes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As matrizes podem ser classificadas em função das suas dimensões e da disposição dos seus elementos.</p>
+<p><strong>Matriz quadrada</strong> de ordem <span class="math inline">\(n\)</span> é toda matriz <span class="math inline">\(n \times n\)</span>, ou seja, uma matriz que possui o mesmo número de linhas e colunas. <span class="math inline">\(\mathbf{A}\)</span>, por exemplo, é uma matriz quadrada de ordem 4:</p>
 <p><span class="math display">\[
 \mathbf{A} = \begin{bmatrix}
 3 &amp; 2 &amp; 1 &amp; 7 \\
@@ -260,7 +257,7 @@ Matrizes <span class="math inline">\(1 \times m\)</span> e <span class="math inl
 \end{bmatrix} \text{.}
 \]</span></p>
 <p>O conjunto <span class="math inline">\(\{ 3,5,-1,-6 \}\)</span>, composto por elementos com índices <span class="math inline">\(i = j\)</span>, é a diagonal principal de <span class="math inline">\(\mathbf{A}\)</span>. Em contrapartida, sua diagonal secundária é o conjunto <span class="math inline">\(\{ 7,6,9,-3 \}\)</span>, composto por elementos que têm a soma dos índices <span class="math inline">\(ij\)</span> igual a <span class="math inline">\(n + 1\)</span>.</p>
-<p><strong>Matriz diagonal</strong> é uma matriz quadrada com os elementos que não pertencem à diagonal principal iguais a zero. Por exemplo,</p>
+<p><strong>Matriz diagonal</strong> é uma matriz quadrada com os elementos que não pertencem à diagonal todos nulos. Por exemplo,</p>
 <p><span class="math display">\[
 \mathbf{D} = \begin{bmatrix}
 3 &amp; 0 &amp; 0 &amp; 0 \\
@@ -269,7 +266,7 @@ Matrizes <span class="math inline">\(1 \times m\)</span> e <span class="math inl
 0 &amp; 0 &amp; 0 &amp; -6
 \end{bmatrix} \text{.}
 \]</span></p>
-<p><strong>Matriz triangular inferior</strong> é uma matriz quadrada com os elementos acima da diagonal principal iguais a zero. Por exemplo,</p>
+<p><strong>Matriz triangular inferior</strong> é uma matriz quadrada com os elementos acima da diagonal principal todos nulos. Por exemplo,</p>
 <p><span class="math display">\[
 \mathbf{L} = \begin{bmatrix}
 3 &amp; 0 &amp; 0 &amp; 0 \\
@@ -278,7 +275,7 @@ Matrizes <span class="math inline">\(1 \times m\)</span> e <span class="math inl
 -3 &amp; -4 &amp; -5 &amp; -6
 \end{bmatrix} \text{.}
 \]</span></p>
-<p><strong>Matriz triangular superior</strong> é uma matriz quadrada com os elementos abaixo da diagonal principal iguais a zero. Por exemplo,</p>
+<p><strong>Matriz triangular superior</strong> é uma matriz quadrada com os elementos abaixo da diagonal principal todos nulos. Por exemplo,</p>
 <p><span class="math display">\[
 \mathbf{U} = \begin{bmatrix}
 3 &amp; 2 &amp; 1 &amp; 7 \\
@@ -287,7 +284,7 @@ Matrizes <span class="math inline">\(1 \times m\)</span> e <span class="math inl
 0 &amp; 0 &amp; 0 &amp; -6
 \end{bmatrix} \text{.}
 \]</span></p>
-<p><strong>Matriz identidade</strong> é uma matriz quadrada com os elementos da diagonal principal iguais a 1. Por exemplo,</p>
+<p><strong>Matriz identidade</strong> é uma matriz quadrada com os elementos da diagonal principal todos iguais a 1. Por exemplo,</p>
 <p><span class="math display">\[
 \mathbf{I} = \begin{bmatrix}
 1 &amp; 0 &amp; 0 &amp; 0 \\
@@ -369,8 +366,8 @@ Matrizes <span class="math inline">\(1 \times m\)</span> e <span class="math inl
 </div>
 
 </div>
-<div id="operações" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Operações<a href="matrizes.html#operações" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="matrices-operations" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Operações<a href="matrizes.html#matrices-operations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="transposição" class="section level3 hasAnchor" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> Transposição<a href="matrizes.html#transposição" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A transposição de uma matriz reorganiza os elementos de modo que as linhas se transformam em colunas, e as colunas em linhas. Por exemplo, seja a matriz</p>
@@ -469,8 +466,8 @@ a_{21} - b_{21} &amp; a_{22} - b_{22}
 </div>
 <div id="multiplicação" class="section level3 hasAnchor" number="1.2.3">
 <h3><span class="header-section-number">1.2.3</span> Multiplicação<a href="matrizes.html#multiplicação" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="operations-matmul" class="section level4 hasAnchor" number="1.2.3.1">
-<h4><span class="header-section-number">1.2.3.1</span> Multiplicação entre duas matrizes<a href="matrizes.html#operations-matmul" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="matrices-operations-matmul" class="section level4 hasAnchor" number="1.2.3.1">
+<h4><span class="header-section-number">1.2.3.1</span> Multiplicação entre duas matrizes<a href="matrizes.html#matrices-operations-matmul" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Sejam as matrizes <span class="math inline">\(\mathbf{A}_{n \times m}\)</span> e <span class="math inline">\(\mathbf{B}_{r \times s}\)</span>, o produto <span class="math inline">\(\mathbf{AB}\)</span> só existe se <span class="math inline">\(m = s\)</span>. Em outras palavras, <span class="math inline">\(\mathbf{AB}\)</span> só existe se o número de colunas de <span class="math inline">\(\mathbf{A}\)</span> for igual ao número de linhas de <span class="math inline">\(\mathbf{B}\)</span>. Por exemplo, dadas as matrizes</p>
 <p><span class="math display">\[\mathbf{A} = \begin{bmatrix}
 1 &amp; 2 \\
@@ -625,18 +622,116 @@ a_{41}c_{41} &amp; a_{42}c_{42}
 ##        [15, 42],
 ##        [28, 64]])</code></pre>
 </div>
+
 </div>
 </div>
-<div id="inversão" class="section level3 hasAnchor" number="1.2.4">
-<h3><span class="header-section-number">1.2.4</span> Inversão<a href="matrizes.html#inversão" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Uma matriz quadrada <span class="math inline">\(\mathbf{A}\)</span> de ordem <span class="math inline">\(n\)</span> é inversível se existir uma matriz quadrada <span class="math inline">\(\mathbf{A}^{-1}\)</span>, também de ordem <span class="math inline">\(n\)</span>, tal que <span class="math inline">\(\mathbf{A}\mathbf{A}^{-1} = \mathbf{A}^{-1}\mathbf{A} = \mathbf{I}\)</span>, em que <span class="math inline">\(\mathbf{I}\)</span> é a matriz identidade. Por exemplo, dada a matriz</p>
+</div>
+<div id="matrices-det" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Determinante<a href="matrizes.html#matrices-det" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>O determinante de uma matriz quadrada é um escalar que fornece informações úteis quanto à existência ou não de soluções para um sistema linear e se uma matriz possui ou não inversa. O determinante de uma matriz <span class="math inline">\(\mathbf{M}_{1\times1}\)</span>, denotado por <span class="math inline">\(\det(\mathbf{B})\)</span> ou <span class="math inline">\(|\mathbf{B}|\)</span>, é o valor do único elemento da matriz. Ou seja,</p>
+<p><span class="math display">\[
+\det(\mathbf{M}) = \det(\begin{bmatrix}
+m_{11}
+\end{bmatrix}) = m_{11} \text{.}
+\]</span></p>
+<p>Para matrizes <span class="math inline">\(2 \times 2\)</span> o determinante é obtido subtraindo o produto dos elementos da diagonal principal pelo produto dos elementos da diagonal secundária. Por exemplo, seja <span class="math inline">\(\mathbf{A}\)</span> uma matriz quadrada de ordem <span class="math inline">\(2\)</span>,</p>
+<p><span class="math display">\[
+\mathbf{A} = \begin{bmatrix}
+5 &amp; 3 \\
+2 &amp; 4
+\end{bmatrix} \text{,}
+\]</span>
+<span class="math inline">\(\det(\mathbf{A})\)</span> é obtido da seguinte forma:</p>
+<p><span class="math display">\[\begin{equation}
+\begin{split}
+\det(\mathbf{A}) &amp; = a_{11}a_{12} - a_{12}a_{21}\\
+&amp; = 5 \cdot 4 - 3 \cdot 2 \\
+&amp; = 14 \text{.}
+\end{split}
+\end{equation}\]</span></p>
+<p>Para matrizes quadradas de ordem <span class="math inline">\(3\)</span>, pode-se aplicar a regra de Sarrus, resumida na figura <a href="matrizes.html#fig:sarrus">1.1</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sarrus"></span>
+<img src="images/sarrus.png" alt="Regra de Sarrus" width="35%" />
+<p class="caption">
+Figura 1.1: Regra de Sarrus
+</p>
+</div>
+<p>Por exemplo, seja <span class="math inline">\(\mathbf{B}\)</span> uma matriz quadrada de ordem <span class="math inline">\(3\)</span>,</p>
+<p><span class="math display">\[
+\mathbf{B} = \begin{bmatrix}
+1 &amp; 3 &amp; 4 \\
+5 &amp; 2 &amp; -3 \\
+1 &amp; 4 &amp; 2 \\
+\end{bmatrix} \text{,}
+\]</span>
+pela Regra de Sarrus, obtemos:</p>
+<p><span class="math display">\[\begin{equation}
+\begin{split}
+\det(\mathbf{B}) &amp; =a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32} - a_{31}a_{22}a_{13} - a_{32}a_{23}a_{11} - a_{33}a_{21}a_{12} \\
+&amp; =(1)(2)(2)+(3)(-3)(1)+(4)(5)(4) - (1)(2)(4)-(4)(-3)(1)-(2)(5)(3) \\
+&amp; =4-9+80-8+12-30 \\
+&amp; = 49 \text{.}
+\end{split}
+\end{equation}\]</span></p>
+<p>O cálculo do determinante pode ser generalizado para matrizes de qualquer ordem por meio da expressão</p>
+<p><span class="math display" id="eq:determinant">\[\begin{equation}
+  \sum\limits_{j \in P} (-1)^k a_{1j_1}a_{2,j_2} \ldots a_{n,j_n} \text{,}
+  \tag{1.2}
+\end{equation}\]</span></p>
+<p>em que <span class="math inline">\(a_{1j}\)</span> são os elementos da matriz, <span class="math inline">\(n\)</span> é a ordem da matriz, P é o conjunto com todas as <span class="math inline">\(n!\)</span> permutações e <span class="math inline">\(k\)</span> é o número de mudanças necessárias para que os segundos subscritos sejam colocados na ordem <span class="math inline">\(1,2, \ldots, n\)</span>.</p>
+<p>Voltando à matriz <span class="math inline">\(\mathbf{B}_{3 \times 3}\)</span>, as <span class="math inline">\(n!\)</span> permutações ficam definidas por</p>
+<p><span class="math display">\[
+P = \{ (1,2,3), (1,3,2), (2,1,3), (2,3,1), (3,1,2), (3,2,1) \} \text{.}
+\]</span></p>
+<p>Deste modo,</p>
+<p><span class="math display">\[\begin{equation}
+\begin{split}
+\det(\mathbf{B}) &amp; =\sum\limits_{j \in P} (-1)^k b_{1j_1}b_{2,j_2}b_{3,j_3} \\
+&amp; =(-1)^0 4 + (-1)^1 (-12) + (-1)^1 30 + (-1)^2 (-9) + (-1)^2 80 + (-1)^3 8 \\
+&amp; =4+12-30-9+80-8\\
+&amp; = 49 \text{.}
+\end{split}
+\end{equation}\]</span></p>
+<div class="example">
+<p><span id="exm:unlabeled-div-6" class="example"><strong>Exemplo 1.6  </strong></span>Cálculo do determinante em Python.</p>
+<p>Construindo as matrizes <span class="math inline">\(\mathbf{A}\)</span> e <span class="math inline">\(\mathbf{B}\)</span>:</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb71-1"><a href="matrizes.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb71-2"><a href="matrizes.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.linalg <span class="im">as</span> la</span>
+<span id="cb71-3"><a href="matrizes.html#cb71-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-4"><a href="matrizes.html#cb71-4" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">5</span>,<span class="dv">3</span>], [<span class="dv">2</span>,<span class="dv">4</span>]])</span>
+<span id="cb71-5"><a href="matrizes.html#cb71-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A)</span></code></pre></div>
+<pre><code>## [[5 3]
+##  [2 4]]</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb73-1"><a href="matrizes.html#cb73-1" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>], [<span class="dv">5</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>], [<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>]])</span>
+<span id="cb73-2"><a href="matrizes.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(B)</span></code></pre></div>
+<pre><code>## [[ 1  3  4]
+##  [ 5  2 -3]
+##  [ 1  4  2]]</code></pre>
+<p>Obtendo <span class="math inline">\(\det(\mathbf{A})\)</span>:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb75-1"><a href="matrizes.html#cb75-1" aria-hidden="true" tabindex="-1"></a>np.linalg.det(A)</span></code></pre></div>
+<pre><code>## 13.999999999999996</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb77-1"><a href="matrizes.html#cb77-1" aria-hidden="true" tabindex="-1"></a>la.det(A)</span></code></pre></div>
+<pre><code>## 14.0</code></pre>
+<p>Obtendo <span class="math inline">\(\det(\mathbf{B})\)</span>:</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb79-1"><a href="matrizes.html#cb79-1" aria-hidden="true" tabindex="-1"></a>np.linalg.det(B)</span></code></pre></div>
+<pre><code>## 48.99999999999999</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb81-1"><a href="matrizes.html#cb81-1" aria-hidden="true" tabindex="-1"></a>la.det(B)</span></code></pre></div>
+<pre><code>## 49.0</code></pre>
+</div>
+
+</div>
+<div id="matrices-inversion" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Inversão<a href="matrizes.html#matrices-inversion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Uma matriz quadrada <span class="math inline">\(\mathbf{A}\)</span> é inversível (ou não singular) se <span class="math inline">\(\det(\mathbf{A}) \neq 0\)</span>. Matrizes não inversíveis também são conhecidas como matrizes singulares.</p>
+<p>Por exemplo, dada a matriz <span class="math inline">\(\mathbf{A}\)</span>,</p>
 <p><span class="math display">\[
 \mathbf{A} = \begin{bmatrix}
 1 &amp; 3 \\
 2 &amp; 7
 \end{bmatrix} \text{,}
 \]</span>
-a sua inversa <span class="math inline">\(\mathbf{A}^{-1}\)</span> é definida por <span class="math inline">\(\mathbf{AA}^{-1} = \mathbf{I}\)</span>. Ou seja,</p>
+observa-se que <span class="math inline">\(\det(\mathbf{A}) = 7 - 6 = 1\)</span>, conforme visto em <a href="matrizes.html#matrices-det">1.3</a>. Portanto, conclui-se que <span class="math inline">\(\mathbf{A}\)</span> é uma matriz inversível.</p>
+<p>Como <span class="math inline">\(\mathbf{A}\)</span> é inversível, então existe uma única matriz <span class="math inline">\(\mathbf{A}^{-1}\)</span> tal que <span class="math inline">\(\mathbf{A}\mathbf{A}^{-1} = \mathbf{A}^{-1}\mathbf{A} = \mathbf{I}\)</span>. Portanto,</p>
 <p><span class="math display">\[
 \begin{bmatrix}
 1 &amp; 3 \\
@@ -649,7 +744,7 @@ a&#39;_{21} &amp; a&#39;_{22}
 0 &amp; 1
 \end{bmatrix} \text{.}
 \]</span>
-Calculando o produto <span class="math inline">\(\mathbf{AA}^{-1}\)</span> conforme visto em <a href="matrizes.html#operations-matmul">1.2.3.1</a>, obtem-se:</p>
+Calculando o produto <span class="math inline">\(\mathbf{AA}^{-1}\)</span>, conforme visto em <a href="matrizes.html#matrices-operations-matmul">1.2.3.1</a>, obtem-se:</p>
 <p><span class="math display">\[
 \begin{bmatrix}
 1 &amp; 3 \\
@@ -695,24 +790,21 @@ Portanto,</p>
 7 &amp; -3 \\
 -2 &amp; 1
 \end{bmatrix} \text{.}
-\]</span></p>
-<div id="divisão-de-matrizes" class="section level4 hasAnchor" number="1.2.4.1">
-<h4><span class="header-section-number">1.2.4.1</span> Divisão de matrizes<a href="matrizes.html#divisão-de-matrizes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Considere a seguinte expressão:</p>
+\]</span>
+Conforme visto em <a href="matrizes.html#matrices-operations">1.2</a>, a divisão é uma operação não definida para matrizes, entretanto, a inversão serve para um propósito equivalente. Por exemplo, considere a seguinte expressão:</p>
 <p><span class="math display">\[
 \dfrac{b}{a} = \dfrac{1}{a} \cdot b = a^{-1}b \text{.}
 \]</span></p>
-<p>Observe que dividir <span class="math inline">\(b\)</span> por <span class="math inline">\(a\)</span> é o mesmo que multiplicar o inverso de <span class="math inline">\(a\)</span> por <span class="math inline">\(b\)</span>.</p>
-<p>A divisão é uma operação não definida para matrizes, entretanto, a inversão serve para um propósito equivalente. Por exemplo, sejam as matrizes</p>
+<p>Observe que dividir <span class="math inline">\(b\)</span> por <span class="math inline">\(a\)</span> é o mesmo que multiplicar o inverso de <span class="math inline">\(a\)</span> por <span class="math inline">\(b\)</span>. Portanto, sejam as matrizes</p>
 <p><span class="math display">\[\mathbf{A} = \begin{bmatrix}
 1 &amp; 3 \\
 2 &amp; 7
 \end{bmatrix} \text{ e } \mathbf{B} = \begin{bmatrix}
 2 &amp; 4 \\
 6 &amp; 8
-\end{bmatrix} \text{.}
+\end{bmatrix} \text{,}
 \]</span>
-O produto</p>
+se <span class="math inline">\(\mathbf{A}\)</span> é inversível, então o produto</p>
 <p><span class="math display">\[
 \mathbf{A}^{-1}\mathbf{B} = \begin{bmatrix}
 -4 &amp; 4 \\
@@ -721,152 +813,37 @@ O produto</p>
 \]</span>
 equivale à divisão de <span class="math inline">\(\mathbf{B}\)</span> por <span class="math inline">\(\mathbf{A}\)</span>.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-6" class="example"><strong>Exemplo 1.6  </strong></span>Inversão de matrizes em Python.</p>
+<p><span id="exm:unlabeled-div-7" class="example"><strong>Exemplo 1.7  </strong></span>Inversão de matrizes em Python.</p>
 <p>Construindo as matrizes <span class="math inline">\(\mathbf{A}\)</span> e <span class="math inline">\(\mathbf{B}\)</span>:</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb71-1"><a href="matrizes.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb71-2"><a href="matrizes.html#cb71-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-3"><a href="matrizes.html#cb71-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">3</span>], [<span class="dv">2</span>,<span class="dv">7</span>]])</span>
-<span id="cb71-4"><a href="matrizes.html#cb71-4" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb83-1"><a href="matrizes.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb83-2"><a href="matrizes.html#cb83-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-3"><a href="matrizes.html#cb83-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">3</span>], [<span class="dv">2</span>,<span class="dv">7</span>]])</span>
+<span id="cb83-4"><a href="matrizes.html#cb83-4" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
 <pre><code>## array([[1, 3],
 ##        [2, 7]])</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb73-1"><a href="matrizes.html#cb73-1" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array([[<span class="dv">2</span>,<span class="dv">4</span>], [<span class="dv">6</span>,<span class="dv">8</span>]])</span>
-<span id="cb73-2"><a href="matrizes.html#cb73-2" aria-hidden="true" tabindex="-1"></a>B</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb85-1"><a href="matrizes.html#cb85-1" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array([[<span class="dv">2</span>,<span class="dv">4</span>], [<span class="dv">6</span>,<span class="dv">8</span>]])</span>
+<span id="cb85-2"><a href="matrizes.html#cb85-2" aria-hidden="true" tabindex="-1"></a>B</span></code></pre></div>
 <pre><code>## array([[2, 4],
 ##        [6, 8]])</code></pre>
 <p>Obtendo a inversa <span class="math inline">\(\mathbf{A}^{-1}\)</span>:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb75-1"><a href="matrizes.html#cb75-1" aria-hidden="true" tabindex="-1"></a>np.linalg.inv(A)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb87-1"><a href="matrizes.html#cb87-1" aria-hidden="true" tabindex="-1"></a>np.linalg.inv(A)</span></code></pre></div>
 <pre><code>## array([[ 7., -3.],
 ##        [-2.,  1.]])</code></pre>
 <p>Conferindo as expressões <span class="math inline">\(\mathbf{A}\mathbf{A}^{-1} = \mathbf{I}\)</span> e <span class="math inline">\(\mathbf{A}^{-1}\mathbf{A} = \mathbf{I}\)</span></p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb77-1"><a href="matrizes.html#cb77-1" aria-hidden="true" tabindex="-1"></a>I <span class="op">=</span> A <span class="op">@</span> np.linalg.inv(A)</span>
-<span id="cb77-2"><a href="matrizes.html#cb77-2" aria-hidden="true" tabindex="-1"></a>I</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb89-1"><a href="matrizes.html#cb89-1" aria-hidden="true" tabindex="-1"></a>I <span class="op">=</span> A <span class="op">@</span> np.linalg.inv(A)</span>
+<span id="cb89-2"><a href="matrizes.html#cb89-2" aria-hidden="true" tabindex="-1"></a>I</span></code></pre></div>
 <pre><code>## array([[1., 0.],
 ##        [0., 1.]])</code></pre>
-<div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb79-1"><a href="matrizes.html#cb79-1" aria-hidden="true" tabindex="-1"></a>I <span class="op">=</span> np.linalg.inv(A) <span class="op">@</span> A</span>
-<span id="cb79-2"><a href="matrizes.html#cb79-2" aria-hidden="true" tabindex="-1"></a>I</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb91-1"><a href="matrizes.html#cb91-1" aria-hidden="true" tabindex="-1"></a>I <span class="op">=</span> np.linalg.inv(A) <span class="op">@</span> A</span>
+<span id="cb91-2"><a href="matrizes.html#cb91-2" aria-hidden="true" tabindex="-1"></a>I</span></code></pre></div>
 <pre><code>## array([[1., 0.],
 ##        [0., 1.]])</code></pre>
 <p>Calculando <span class="math inline">\(\mathbf{A}^{-1} \mathbf{B}\)</span>:</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb81-1"><a href="matrizes.html#cb81-1" aria-hidden="true" tabindex="-1"></a>np.linalg.inv(A) <span class="op">@</span> B</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb93-1"><a href="matrizes.html#cb93-1" aria-hidden="true" tabindex="-1"></a>np.linalg.inv(A) <span class="op">@</span> B</span></code></pre></div>
 <pre><code>## array([[-4.,  4.],
 ##        [ 2.,  0.]])</code></pre>
 </div>
-</div>
-</div>
-<div id="propriedades" class="section level3 hasAnchor" number="1.2.5">
-<h3><span class="header-section-number">1.2.5</span> Propriedades<a href="matrizes.html#propriedades" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p><span class="math inline">\(\mathbf{A} + \mathbf{B} = \mathbf{B} + \mathbf{A}\)</span>;</p></li>
-<li><p><span class="math inline">\((\mathbf{A} + \mathbf{B}) + \mathbf{C} = \mathbf{A} + (\mathbf{B} + \mathbf{C})\)</span>;</p></li>
-<li><p><span class="math inline">\(k(\mathbf{A} + \mathbf{B}) = k\mathbf{A} + k\mathbf{B}\)</span>, onde <span class="math inline">\(k\)</span> é um escalar;</p></li>
-<li><p><span class="math inline">\((k + p)\mathbf{A} = k\mathbf{A} + p\mathbf{A}\)</span>, onde <span class="math inline">\(k\)</span> e <span class="math inline">\(p\)</span> são escalares;</p></li>
-<li><p>Se <span class="math inline">\(\mathbf{A}\)</span> e <span class="math inline">\(\mathbf{B}\)</span> são matrizes quadradas, <span class="math inline">\(\mathbf{AB} \neq \mathbf{BA}\)</span> (ao menos que uma seja inversa da outra);</p></li>
-<li><p>Se <span class="math inline">\(\mathbf{A}\)</span> ou <span class="math inline">\(\mathbf{B}\)</span> não for quadrada e o produto<span class="math inline">\(\mathbf{AB}\)</span> existir, então o produto <span class="math inline">\(\mathbf{BA}\)</span> não existe;</p></li>
-<li><p><span class="math inline">\((\mathbf{A}\)</span> + <span class="math inline">\(\mathbf{B})\mathbf{C} = \mathbf{AC} + \mathbf{BC}\)</span>;</p></li>
-<li><p><span class="math inline">\(\mathbf{A}(\mathbf{B} + \mathbf{C}) = \mathbf{AB} + \mathbf{AC}\)</span>;</p></li>
-<li><p><span class="math inline">\(k(\mathbf{AB}) = (k\mathbf{A})\mathbf{B} = \mathbf{A}(k\mathbf{B})\)</span>, onde <span class="math inline">\(k\)</span> é um escalar;</p></li>
-<li><p><span class="math inline">\((\mathbf{A}^T)^T = \mathbf{A}\)</span>;</p></li>
-<li><p>Se o produto <span class="math inline">\(\mathbf{AB}\)</span> existe, então <span class="math inline">\((\mathbf{AB})^T = \mathbf{B}^T\mathbf{A}^T\)</span>;</p></li>
-<li><p>Se <span class="math inline">\(\mathbf{A}\)</span> é inversível, então <span class="math inline">\((\mathbf{A}^{-1})^{-1} = \mathbf{A}\)</span>;</p></li>
-<li><p>Se <span class="math inline">\(\mathbf{A}\)</span> e <span class="math inline">\(\mathbf{B}\)</span> são quadradas de mesma ordem e inversíveis, então <span class="math inline">\((\mathbf{AB})^{-1} = \mathbf{B}^{-1}\mathbf{A}^{-1}\)</span>.</p></li>
-</ul>
 
-</div>
-</div>
-<div id="determinante" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Determinante<a href="matrizes.html#determinante" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>O determinante de uma matriz quadrada é um escalar que fornece informações úteis quanto à existência ou não de soluções para um sistema linear. Por exemplo, seja <span class="math inline">\(\mathbf{A}\)</span> uma matriz quadrada de ordem <span class="math inline">\(n=2\)</span>,</p>
-<p><span class="math display">\[
-\mathbf{A} = \begin{bmatrix}
-5 &amp; 3 \\
-2 &amp; 4
-\end{bmatrix} \text{.}
-\]</span>
-O determinante de <span class="math inline">\(\mathbf{A}\)</span>, denotado por <span class="math inline">\(\det(\mathbf{A})\)</span> ou <span class="math inline">\(\left| \mathbf{A} \right|\)</span>, é obtido da seguinte forma:</p>
-<p><span class="math display">\[\begin{equation}
-\begin{split}
-\det(\mathbf{A}) &amp; = a_{11}a_{12} - a_{12}a_{21}\\
-&amp; = 5 \cdot 4 - 3 \cdot 2 \\
-&amp; = 14 \text{.}
-\end{split}
-\end{equation}\]</span></p>
-<p>Para matrizes quadradas de ordem <span class="math inline">\(n = 3\)</span>, pode-se aplicar a regra de Sarrus, resumida na figura <a href="matrizes.html#fig:sarrus">1.1</a>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sarrus"></span>
-<img src="images/sarrus.png" alt="Regra de Sarrus" width="35%" />
-<p class="caption">
-Figura 1.1: Regra de Sarrus
-</p>
-</div>
-<p>Por exemplo, seja <span class="math inline">\(\mathbf{B}\)</span> uma matriz quadrada de ordem <span class="math inline">\(n = 3\)</span>,</p>
-<p><span class="math display">\[
-\mathbf{B} = \begin{bmatrix}
-1 &amp; 3 &amp; 4 \\
-5 &amp; 2 &amp; -3 \\
-1 &amp; 4 &amp; 2 \\
-\end{bmatrix} \text{.}
-\]</span>
-Pela Regra de Sarrus, obtemos:</p>
-<p><span class="math display">\[\begin{equation}
-\begin{split}
-\det(\mathbf{B}) &amp; =a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32} - a_{31}a_{22}a_{13} - a_{32}a_{23}a_{11} - a_{33}a_{21}a_{12} \\
-&amp; =(1)(2)(2)+(3)(-3)(1)+(4)(5)(4) - (1)(2)(4)-(4)(-3)(1)-(2)(5)(3) \\
-&amp; =4-9+80-8+12-30 \\
-&amp; = 49 \text{.}
-\end{split}
-\end{equation}\]</span></p>
-<p>O cálculo do determinante pode ser generalizado por meio da expressão</p>
-<p><span class="math display" id="eq:determinant">\[\begin{equation}
-  \sum\limits_{j \in P} (-1)^k a_{1j_1}a_{2,j_2} \ldots a_{n,j_n} \text{,}
-  \tag{1.2}
-\end{equation}\]</span></p>
-<p>em que <span class="math inline">\(a_{1j}\)</span> são os elementos da matriz, <span class="math inline">\(n\)</span> é a ordem da matriz, P é o conjunto com todas as <span class="math inline">\(n!\)</span> permutações e <span class="math inline">\(k\)</span> é o número de mudanças necessárias para que os segundos subscritos sejam colocados na ordem <span class="math inline">\(1,2, \ldots, n\)</span>.</p>
-<p>Voltando à matriz <span class="math inline">\(\mathbf{B}_{3 \times 3}\)</span>, as <span class="math inline">\(n!\)</span> permutações ficam definidas por</p>
-<p><span class="math display">\[
-P = \{ (1,2,3), (1,3,2), (2,1,3), (2,3,1), (3,1,2), (3,2,1) \} \text{.}
-\]</span></p>
-<p>Deste modo,</p>
-<p><span class="math display">\[\begin{equation}
-\begin{split}
-\det(\mathbf{B}) &amp; =\sum\limits_{j \in P} (-1)^k b_{1j_1}b_{2,j_2}b_{3,j_3} \\
-&amp; =(-1)^0 4 + (-1)^1 (-12) + (-1)^1 30 + (-1)^2 (-9) + (-1)^2 80 + (-1)^3 8 \\
-&amp; =4+12-30-9+80-8\\
-&amp; = 49 \text{.}
-\end{split}
-\end{equation}\]</span></p>
-<div class="example">
-<p><span id="exm:unlabeled-div-7" class="example"><strong>Exemplo 1.7  </strong></span>Cálculo do determinante em Python.</p>
-<p>Construindo as matrizes <span class="math inline">\(\mathbf{A}\)</span> e <span class="math inline">\(\mathbf{B}\)</span>:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb83-1"><a href="matrizes.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb83-2"><a href="matrizes.html#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.linalg <span class="im">as</span> la</span>
-<span id="cb83-3"><a href="matrizes.html#cb83-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb83-4"><a href="matrizes.html#cb83-4" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">5</span>,<span class="dv">3</span>], [<span class="dv">2</span>,<span class="dv">4</span>]])</span>
-<span id="cb83-5"><a href="matrizes.html#cb83-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A)</span></code></pre></div>
-<pre><code>## [[5 3]
-##  [2 4]]</code></pre>
-<div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb85-1"><a href="matrizes.html#cb85-1" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>], [<span class="dv">5</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>], [<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>]])</span>
-<span id="cb85-2"><a href="matrizes.html#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(B)</span></code></pre></div>
-<pre><code>## [[ 1  3  4]
-##  [ 5  2 -3]
-##  [ 1  4  2]]</code></pre>
-<p>Obtendo <span class="math inline">\(\det(\mathbf{A})\)</span>:</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb87-1"><a href="matrizes.html#cb87-1" aria-hidden="true" tabindex="-1"></a>np.linalg.det(A)</span></code></pre></div>
-<pre><code>## 13.999999999999996</code></pre>
-<div class="sourceCode" id="cb89"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb89-1"><a href="matrizes.html#cb89-1" aria-hidden="true" tabindex="-1"></a>la.det(A)</span></code></pre></div>
-<pre><code>## 14.0</code></pre>
-<p>Obtendo <span class="math inline">\(\det(\mathbf{B})\)</span>:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb91-1"><a href="matrizes.html#cb91-1" aria-hidden="true" tabindex="-1"></a>np.linalg.det(B)</span></code></pre></div>
-<pre><code>## 48.99999999999999</code></pre>
-<div class="sourceCode" id="cb93"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb93-1"><a href="matrizes.html#cb93-1" aria-hidden="true" tabindex="-1"></a>la.det(B)</span></code></pre></div>
-<pre><code>## 49.0</code></pre>
-</div>
-<div id="propriedades-1" class="section level3 hasAnchor" number="1.3.1">
-<h3><span class="header-section-number">1.3.1</span> Propriedades<a href="matrizes.html#propriedades-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Se <span class="math inline">\(\mathbf{A}_{1 \times 1}\)</span>, então <span class="math inline">\(\det(\mathbf{A})=a_{11}\)</span>;</p></li>
-<li><p>Se <span class="math inline">\(\mathbf{A}\)</span> e <span class="math inline">\(\mathbf{B}\)</span> são matrizes quadradas, então <span class="math inline">\(\det(\mathbf{AB}) = \det(\mathbf{A})\det(\mathbf{B})\)</span>.</p></li>
-</ul>
-
-</div>
 </div>
 </div>
             </section>
@@ -874,8 +851,8 @@ P = \{ (1,2,3), (1,3,2), (2,1,3), (2,3,1), (3,1,2), (3,2,1) \} \text{.}
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sistemas-de-equações-lineares.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,0 +1,115 @@
+## Eliminação de Gauss {#linsystem-gauss}
+
+A solução do sistema \@ref(eq:linsystem-alunos) é composta pelos valores de $x_1$, $x_2$ e $x_3$ que tornam cada uma das três equações verdadeiras. Para encontrar a solução, um dos métodos mais populares é a **Eliminação de Gauss**, detalhada na subseção \@ref(linsystem-gauss).
+
+O método de Eliminação de Gauss, tem como objetivo transformar o sistema atual em um sistema triangular superior de fácil solução, por meio de uma série de operações com linhas. O primeiro passo do método é a construção da matriz do sistema, ou seja, uma tabela formada pelos coeficientes e os termos independentes. Por exemplo, $\mathbf{M}$ é a matriz aumentada do sistema \@ref(eq:linsystem-alunos), em que do lado esquerdo estão as notas dos das atividades (coeficientes) e, do lado direito, as notas finais (termos independentes):
+
+$$
+\mathbf{M} = \begin{bmatrix}
+10 & 8 & 9 & \vdots & 9.8 \\ 
+7 & 6 & 8 & \vdots & 8 \\
+7 & 5 & 10 & \vdots & 8.9
+\end{bmatrix} \text{.}
+$$
+
+Em seguida deve-se identificar o primeiro elemento pivô e eliminar (zerar) todos elementos abaixo dele. Elementos são todos os númeror que compõem a matriz. Por exemplo, na linha 1 ($L1$), coluna 1 ($C1$) temos o elemento $a_{11}=10$.Na $L2$, $C2$, o elemento $a_{22}=6$. E assim sucessivamente.
+
+O primeiro pivô é o elemento $a_{11}$ (em parênteses):
+
+$$
+\mathbf{M} = \begin{bmatrix}
+(10) & 8 & 9 & \vdots & 9.8 \\ 
+7 & 6 & 8 & \vdots & 8 \\
+7 & 5 & 10 & \vdots & 8.9
+\end{bmatrix} \text{.}
+$$
+
+Para eliminar o elemento da $Li$ abaixo do pivô, precisamos realizar simples operações em cada um dos elementos da $Li$. Em resumo, devemos efetuar a subtração de cada elemento da $Li$ pelo produto de um fator de multiplicação e do elemento correspondente da linha do pivô. Este fator de multiplicação nada mais é do que o elemento que desejamos eliminar dividido pelo pivô.
+
+Considerando a $L2$, o fator de multiplicação é $7/10=0.7$, portanto,
+
+\begin{equation} 
+\begin{split}
+\mathbf{M} & =\begin{bmatrix}
+(10) & 8 & 9 & \vdots & 9.8 \\ 
+7 & 6 & 8 & \vdots & 8 \\
+7 & 5 & 10 & \vdots & 8.9
+\end{bmatrix} \\
+ & =\begin{bmatrix}
+(10) & 8 & 9 & \vdots & 9.8 \\ 
+7-0.7\cdot 10 & 6-0.7\cdot 8 & 8-0.7\cdot 9 & \vdots & 8-0.7\cdot 9.8 \\
+7 & 5 & 10 & \vdots & 8.9
+\end{bmatrix} \\
+ & =\begin{bmatrix}
+(10) & 8 & 9 & \vdots & 9.8 \\ 
+0 & 0.4 & 1.7 & \vdots & 1.14 \\
+7 & 5 & 10 & \vdots & 8.9
+\end{bmatrix} \text{.}
+\end{split}
+\end{equation}
+
+Para eliminar o elemento da $L3$, precisamos obter o novo fator de multiplicação, que neste caso também é $7/10=0.7$. Portanto,
+
+\begin{equation} 
+\begin{split}
+\mathbf{M} & =\begin{bmatrix}
+(10) & 8 & 9 & \vdots & 9.8 \\ 
+0 & 0.4 & 1.7 & \vdots & 1.14 \\
+7 & 5 & 10 & \vdots & 8.9
+\end{bmatrix} \\
+ & =\begin{bmatrix}
+(10) & 8 & 9 & \vdots & 9.8 \\ 
+0 & 0.4 & 1.7 & \vdots & 1.14 \\
+7-0.7 \cdot 10 & 5-0.7 \cdot 8 & 10-0.7 \cdot 9 & \vdots & 8.9-0.7 \cdot 9.8
+\end{bmatrix} \\
+ & =\begin{bmatrix}
+10 & 8 & 9 & \vdots & 9.8 \\ 
+0 & 0.4 & 1.7 & \vdots & 1.14 \\
+0 & -0.6 & 3.7 & \vdots & 2.04
+\end{bmatrix} \text{.}
+\end{split}
+\end{equation}
+
+O próximo passo é identificar o segundo pivô, que no caso é o elemento $a_{22}$ (em parênteses):
+
+$$
+\mathbf{M} = \begin{bmatrix}
+10 & 8 & 9 & \vdots & 9.8 \\ 
+0 & (0.4) & 1.7 & \vdots & 1.14 \\
+0 & -0.6 & 3.7 & \vdots & 2.04
+\end{bmatrix}
+$$
+Agora precisamos eleminar o elemento $a_{32}$, utilizando como fator de multiplicação $-0.6/0.4=-1.5$. Portanto,
+
+\begin{equation} 
+\begin{split}
+\mathbf{M} & =\begin{bmatrix}
+10 & 8 & 9 & \vdots & 9.8 \\ 
+0 & (0.4) & 1.7 & \vdots & 1.14 \\
+0 & -0.6 & 3.7 & \vdots & 2.04
+\end{bmatrix} \\
+ & =\begin{bmatrix}
+10 & 8 & 9 & \vdots & 9.8 \\ 
+0 & (0.4) & 1.7 & \vdots & 1.14 \\
+0-(-1.5)0 & -0.6-(-1.5)0.4 & 3.7-(-1.5)1.7 & \vdots & 2.04-(-1.5)1.14
+\end{bmatrix} \\
+ & =\begin{bmatrix}
+10 & 8 & 9 & \vdots & 9.8 \\ 
+0 & 0.4 & 1.7 & \vdots & 1.14 \\
+0 & 0 & 6.25 & \vdots & 3.75
+\end{bmatrix} \text{.}
+\end{split}
+\end{equation}
+
+Reescrevendo as equações, temos a transformação do sistema \@ref(eq:linsystem-alunos) em um sistema triangular superior:
+
+\begin{equation} 
+  \left\{
+    \begin{array}{lcr}
+      10x_1 + 8x_2 + 9x_3 = 9.8 \\
+      0x_1 + 0.4x_2 + 1.7x_3 = 1.14 \\
+      0x_1 + 0x_2 + 6.25x_3 = 3.75
+    \end{array} \text{.}
+\right.
+  (\#eq:linsystem-alunos-tri)
+\end{equation} 

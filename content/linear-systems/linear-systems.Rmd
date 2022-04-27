@@ -1,0 +1,111 @@
+
+# Sistemas de equações lineares
+
+Uma equação é dita linear quando se apresenta na forma $a_{1}x_1 + a_{2}x_2 + \ldots + a_{m}x_m = b$, em que $x_j$ são as incógnitas, $a_j$ os coeficientes e $b$ o termo independente. 
+
+Um sistema linear é um conjunto de $n$ equações lineares na forma
+
+\begin{equation} 
+  \left\{
+    \begin{array}{lcr}
+      a_{11}x_1 + a_{12}x_2 + \ldots + a_{1m}x_m = b_1 \\
+      a_{21}x_1 + a_{22}x_2 + \ldots + a_{2m}x_m = b_2 \\
+      \vdots \\
+      a_{n1}x_1 + a_{n2}x_2 + \ldots + a_{nm}x_m = b_n \text{.}
+    \end{array}
+\right.
+  (\#eq:linsystem-general)
+\end{equation}
+
+Por exemplo, em um curso de pós graduação, a nota final de cada aluno é calculada por meio da expressão $a_{i1}x_1 + a_{i2}x_2 + a_{i3}x_3 = b_i$, em que a $a_{i1}$ é a nota da lista de exercícios, $a_{i2}$ a nota do trabalho, $a_{i3}$ a nota da prova e $x_1$, $x_2$ e $x_3$ os pesos de cada atividade. A tabela \@ref(tab:linsystem-tb-alunos) representa a relação das notas de três alunos com suas respectivas notas finais.
+
+```{r linsystem-tb-alunos, echo=FALSE}
+df = data.frame(e=c(10,7,7), t=c(8,6,5), a=c(9,8,10), nf=c(9.8,8,8.9))
+colnames(df) = c('Exercícios', 'Trabalho', 'Prova', 'Nota final')
+rownames(df) = c('Aluno1', 'Aluno2', 'Aluno3')
+
+knitr::kable(
+  df, booktabs = TRUE,
+  caption = 'Relação de notas por atividade e nota final'
+)
+```
+
+Considerando os dados da tabela \@ref(tab:linsystem-tb-alunos), os pesos $x_1$, $x_2$ e $x_3$ podem ser obtidos por meio da resolução do sistema de equações lineares representado em \@ref(eq:linsystem-alunos).
+
+\begin{equation} 
+  \left\{
+    \begin{array}{lcr}
+      10x_1 + 8x_2 + 9x_3 = 9.8 \\
+      7x_1 + 6x_2 + 8x_3 = 8 \\
+      7x_1 + 5x_2 + 10x_3 = 8.9 \text{.}
+    \end{array}
+\right.
+  (\#eq:linsystem-alunos)
+\end{equation}
+
+Um sistema de equações lineares pode ser representado por meio da notação matricial $\mathbf{Ax} = \mathbf{b}$, em que $\mathbf{A}$ é a matriz dos coeficientes, $\mathbf{x}$ é o vetor solução e $\mathbf{b}$ o vetor dos termos independentes. Ou seja,
+
+$$
+\begin{bmatrix}
+10 & 8 & 9 \\ 
+7 & 6 & 8 \\
+7 & 5 & 10
+\end{bmatrix}\begin{bmatrix}
+x_1 \\ 
+x_2 \\
+x_3
+\end{bmatrix} = \begin{bmatrix}
+9.8 \\ 
+8 \\
+8.9
+\end{bmatrix} \text{.}
+$$
+Se $\det(\mathbf{A}) \neq 0$, então o sistema possui uma única solução e, portanto, é possível resolvê-lo por meio da expressão $\mathbf{x} = \mathbf{A}^{-1}\mathbf{b}$. Calculando o determinante de $\mathbf{A}$ conforme visto em \@ref(matrices-det), temos $\det(\mathbf{A})=25$. Logo, a solução do sistema \@ref(eq:linsystem-alunos) é dada por
+
+\begin{equation} 
+\begin{split}
+\mathbf{x} & = \mathbf{A}^{-1}\mathbf{b} \\
+ & =\begin{bmatrix}
+0.8 & -1.4 & 0.4 \\ 
+-0.56 & 1.48 & -0.68 \\
+-0.28 & 0.24 & 0.16
+\end{bmatrix}\begin{bmatrix}
+9.8 \\ 
+8 \\
+8.9
+\end{bmatrix} \\
+ & =\begin{bmatrix}
+0.2 \\ 
+0.3 \\
+0.6
+\end{bmatrix} \text{.}
+\end{split}
+\end{equation}
+
+Por fim, temos como solução do sistema \@ref(eq:linsystem-alunos) os valores $x_1=0.2$, $x_2=0.3$ e $x_3=0.6$.
+
+::: {.example}
+Resolução de um sistema linear com Python.
+
+Construindo a matriz dos coeficientes $\mathbf{A}$ e o vetor dos termos independentes $\mathbf{b}$:
+```{python}
+import numpy as np
+
+A = np.array([[10,8,9], [7,6,8], [7,5,10]])
+A
+
+bt = np.array([9.8, 8, 8.9]) # b como um vetor linha
+b = bt.reshape((3,1)) # b como um vetor coluna
+b
+
+b = np.array([[9.8], [8], [8.9]]) # b como um vetor coluna
+b
+```
+
+Resolvendo o sistema pela expressão $\mathbf{x} = \mathbf{A}^{-1}\mathbf{b}$:
+```{python}
+x = np.linalg.inv(A) @ b
+x
+```
+
+:::

@@ -3,7 +3,7 @@ output_dir: "docs"
 language:
   label:
     fig: 'Figura '
-    tab: 'Table '
+    tab: 'Tabela '
     eq: 'Equation '
     thm: 'Theorem '
     lem: 'Lemma '
@@ -24,7 +24,9 @@ delete_merged_file: true
 rmd_files: [
   "index.Rmd",
   "content/matrices/matrices.Rmd",
-  "content/matrices/special-cases.Rmd",
+  "content/matrices/types.Rmd",
   "content/matrices/operations.Rmd",
-  "content/matrices/determinant.Rmd"
+  "content/matrices/determinant.Rmd",
+  "content/matrices/inversion.Rmd",
+  "content/linear-systems/linear-systems.Rmd"
   ]

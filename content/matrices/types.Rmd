@@ -1,8 +1,8 @@
-## Casos especiais
+## Tipos de matrizes
 
-Algumas matrizes possuem estruturas ou propriedades especiais. Apresenta-se os principais casos.
+As matrizes podem ser classificadas em função das suas dimensões e da disposição dos seus elementos. 
 
-**Matriz quadrada** de ordem $n$ é toda matriz $n \times n$, ou seja, uma matriz que possui o mesmo número de linhas e colunas. $\mathbf{A}$, por exemplo, é uma matriz quadrada de ordem 4.
+**Matriz quadrada** de ordem $n$ é toda matriz $n \times n$, ou seja, uma matriz que possui o mesmo número de linhas e colunas. $\mathbf{A}$, por exemplo, é uma matriz quadrada de ordem 4:
 
 $$
 \mathbf{A} = \begin{bmatrix}
@@ -15,7 +15,7 @@ $$
 
 O conjunto $\{ 3,5,-1,-6 \}$, composto por elementos com índices $i = j$, é a diagonal principal de $\mathbf{A}$. Em contrapartida, sua diagonal secundária é o conjunto $\{ 7,6,9,-3 \}$, composto por elementos que têm a soma dos índices $ij$ igual a $n + 1$.
 
-**Matriz diagonal** é uma matriz quadrada com os elementos que não pertencem à diagonal principal iguais a zero. Por exemplo,
+**Matriz diagonal** é uma matriz quadrada com os elementos que não pertencem à diagonal todos nulos. Por exemplo,
 
 $$
 \mathbf{D} = \begin{bmatrix}
@@ -26,7 +26,7 @@ $$
 \end{bmatrix} \text{.}
 $$
 
-**Matriz triangular inferior** é uma matriz quadrada com os elementos acima da diagonal principal iguais a zero. Por exemplo,
+**Matriz triangular inferior** é uma matriz quadrada com os elementos acima da diagonal principal todos nulos. Por exemplo,
 
 $$
 \mathbf{L} = \begin{bmatrix}
@@ -37,7 +37,7 @@ $$
 \end{bmatrix} \text{.}
 $$
 
-**Matriz triangular superior** é uma matriz quadrada com os elementos abaixo da diagonal principal iguais a zero. Por exemplo,
+**Matriz triangular superior** é uma matriz quadrada com os elementos abaixo da diagonal principal todos nulos. Por exemplo,
 
 $$
 \mathbf{U} = \begin{bmatrix}
@@ -48,7 +48,7 @@ $$
 \end{bmatrix} \text{.}
 $$
 
-**Matriz identidade** é uma matriz quadrada com os elementos da diagonal principal iguais a 1. Por exemplo,
+**Matriz identidade** é uma matriz quadrada com os elementos da diagonal principal todos iguais a 1. Por exemplo,
 
 $$
 \mathbf{I} = \begin{bmatrix}

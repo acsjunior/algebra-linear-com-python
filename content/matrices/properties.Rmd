@@ -1,0 +1,27 @@
+## Propriedades
+
+* $\mathbf{A} + \mathbf{B} = \mathbf{B} + \mathbf{A}$;
+
+* $(\mathbf{A} + \mathbf{B}) + \mathbf{C} = \mathbf{A} + (\mathbf{B} + \mathbf{C})$;
+
+* $k(\mathbf{A} + \mathbf{B}) = k\mathbf{A} + k\mathbf{B}$, onde $k$ é um escalar;
+
+* $(k + p)\mathbf{A} = k\mathbf{A} + p\mathbf{A}$, onde $k$ e $p$ são escalares;
+
+* Se $\mathbf{A}$ e $\mathbf{B}$ são matrizes quadradas, $\mathbf{AB} \neq \mathbf{BA}$ (ao menos que uma seja inversa da outra);
+
+* Se $\mathbf{A}$ ou $\mathbf{B}$ não for quadrada e o produto$\mathbf{AB}$ existir, então o produto $\mathbf{BA}$ não existe;
+
+* $(\mathbf{A}$ + $\mathbf{B})\mathbf{C} = \mathbf{AC} + \mathbf{BC}$;
+
+* $\mathbf{A}(\mathbf{B} + \mathbf{C}) = \mathbf{AB} + \mathbf{AC}$;
+
+* $k(\mathbf{AB}) = (k\mathbf{A})\mathbf{B} = \mathbf{A}(k\mathbf{B})$, onde $k$ é um escalar;
+
+* $(\mathbf{A}^T)^T = \mathbf{A}$;
+
+* Se o produto $\mathbf{AB}$ existe, então $(\mathbf{AB})^T = \mathbf{B}^T\mathbf{A}^T$;
+
+* Se $\mathbf{A}$ é inversível, então $(\mathbf{A}^{-1})^{-1} = \mathbf{A}$;
+
+* Se $\mathbf{A}$ e $\mathbf{B}$ são quadradas de mesma ordem e inversíveis, então $(\mathbf{AB})^{-1} = \mathbf{B}^{-1}\mathbf{A}^{-1}$.

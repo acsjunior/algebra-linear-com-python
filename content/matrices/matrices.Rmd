@@ -26,9 +26,9 @@ a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23}
 \end{bmatrix} \text{.}
 $$
-Cada elemento da matriz pode ser identificado por sua localizão exclusiva. Por exemplo, $a_{21}$ referencia o elemento da segunda linha e primeira coluna de $\mathbf{A}$, ou seja, $a_{21} = 8$.
+Cada elemento da matriz pode ser identificado por sua localizão exclusiva. Por exemplo, $a_{21}$ referencia o elemento da segunda linha ($L_2$) e primeira coluna ($C_1$) de $\mathbf{A}$, ou seja, $a_{21} = 8$.
 
-Cada linha de uma matriz é uma matriz $1 \times m$. A linha 2 de $\mathbf{A}$, por exemplo, é uma matriz $1 \times 3$:
+Cada linha de uma matriz é uma matriz $1 \times m$. A $L_2$ de $\mathbf{A}$, por exemplo, é uma matriz $1 \times 3$:
 
 $$
 \mathbf{L_2} = \begin{bmatrix}
@@ -36,7 +36,7 @@ $$
 \end{bmatrix} \text{.}
 $$
 
-E cada coluna de uma matriz é uma matriz $n \times 1$. Por exemplo, a coluna 1 de $\mathbf{B}$ é uma matriz $4 \times 1$:
+E cada coluna de uma matriz é uma matriz $n \times 1$. Por exemplo, a $C_1$ de $\mathbf{B}$ é uma matriz $4 \times 1$:
 
 $$
 \mathbf{C_1} = \begin{bmatrix}
@@ -46,6 +46,7 @@ $$
 4
 \end{bmatrix} \text{.}
 $$
+
 Matrizes $1 \times m$ e $n \times 1$ também são conhecidas como vetores. Portanto, pode-se dizer que uma matriz $n \times m$ é composta por $n$ vetores linha ou $m$ vetores coluna.
 
 ::: {.example}

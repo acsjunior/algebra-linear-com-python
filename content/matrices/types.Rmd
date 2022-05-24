@@ -88,7 +88,7 @@ Construindo a matriz quadrada $\mathbf{A}$:
 ```{python}
 import numpy as np
 
-A = np.array([[3,2,1,7], [4,5,6,0], [8,9,-1,-2], [-3,-4,-5,-6]])
+A = np.matrix([[3,2,1,7], [4,5,6,0], [8,9,-1,-2], [-3,-4,-5,-6]])
 A
 ```
 
@@ -104,31 +104,31 @@ np.diagonal(np.fliplr(A))
 
 Construindo a matriz diagonal $\mathbf{D}$ a partir de $\mathbf{A}$:
 ```{python}
-D = np.diag(np.diagonal(A))
+D = np.asmatrix(np.diag(np.diagonal(A)))
 D
 ```
 
 Construindo a matriz triangular inferior $\mathbf{L}$ a partir de $\mathbf{A}$:
 ```{python}
-L = np.tril(A)
+L = np.asmatrix(np.tril(A))
 L
 ```
 
 Construindo a matriz triangular superior $\mathbf{U}$ a partir de $\mathbf{A}$:
 ```{python}
-U = np.triu(A)
+U = np.asmatrix(np.triu(A))
 U
 ```
 
 Construindo a matriz identidade $\mathbf{I_4}$ (ordem 4):
 ```{python}
-I = np.identity(4)
+I = np.asmatrix(np.identity(4))
 I
 ```
 
 Construindo a matriz zero $\mathbf{Z_{4 \times 4}}$:
 ```{python}
-Z = np.zeros((4,4))
+Z = np.asmatrix(np.zeros((4,4)))
 Z
 ```
 :::

@@ -23,7 +23,7 @@
 <meta name="author" content="António C. da Silva Júnior" />
 
 
-<meta name="date" content="2022-04-26" />
+<meta name="date" content="2022-05-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -274,28 +274,22 @@ Se <span class="math inline">\(\det(\mathbf{A}) \neq 0\)</span>, então o sistem
 <p>Construindo a matriz dos coeficientes <span class="math inline">\(\mathbf{A}\)</span> e o vetor dos termos independentes <span class="math inline">\(\mathbf{b}\)</span>:</p>
 <div class="sourceCode" id="cb95"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb95-1"><a href="sistemas-de-equações-lineares.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb95-2"><a href="sistemas-de-equações-lineares.html#cb95-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb95-3"><a href="sistemas-de-equações-lineares.html#cb95-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">10</span>,<span class="dv">8</span>,<span class="dv">9</span>], [<span class="dv">7</span>,<span class="dv">6</span>,<span class="dv">8</span>], [<span class="dv">7</span>,<span class="dv">5</span>,<span class="dv">10</span>]])</span>
+<span id="cb95-3"><a href="sistemas-de-equações-lineares.html#cb95-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.matrix([[<span class="dv">10</span>,<span class="dv">8</span>,<span class="dv">9</span>], [<span class="dv">7</span>,<span class="dv">6</span>,<span class="dv">8</span>], [<span class="dv">7</span>,<span class="dv">5</span>,<span class="dv">10</span>]])</span>
 <span id="cb95-4"><a href="sistemas-de-equações-lineares.html#cb95-4" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
-<pre><code>## array([[10,  8,  9],
-##        [ 7,  6,  8],
-##        [ 7,  5, 10]])</code></pre>
-<div class="sourceCode" id="cb97"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb97-1"><a href="sistemas-de-equações-lineares.html#cb97-1" aria-hidden="true" tabindex="-1"></a>bt <span class="op">=</span> np.array([<span class="fl">9.8</span>, <span class="dv">8</span>, <span class="fl">8.9</span>]) <span class="co"># b como um vetor linha</span></span>
-<span id="cb97-2"><a href="sistemas-de-equações-lineares.html#cb97-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> bt.reshape((<span class="dv">3</span>,<span class="dv">1</span>)) <span class="co"># b como um vetor coluna</span></span>
-<span id="cb97-3"><a href="sistemas-de-equações-lineares.html#cb97-3" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
-<pre><code>## array([[9.8],
-##        [8. ],
-##        [8.9]])</code></pre>
-<div class="sourceCode" id="cb99"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb99-1"><a href="sistemas-de-equações-lineares.html#cb99-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([[<span class="fl">9.8</span>], [<span class="dv">8</span>], [<span class="fl">8.9</span>]]) <span class="co"># b como um vetor coluna</span></span>
-<span id="cb99-2"><a href="sistemas-de-equações-lineares.html#cb99-2" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
-<pre><code>## array([[9.8],
-##        [8. ],
-##        [8.9]])</code></pre>
+<pre><code>## matrix([[10,  8,  9],
+##         [ 7,  6,  8],
+##         [ 7,  5, 10]])</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb97-1"><a href="sistemas-de-equações-lineares.html#cb97-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.matrix([<span class="fl">9.8</span>, <span class="dv">8</span>, <span class="fl">8.9</span>]).T</span>
+<span id="cb97-2"><a href="sistemas-de-equações-lineares.html#cb97-2" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
+<pre><code>## matrix([[9.8],
+##         [8. ],
+##         [8.9]])</code></pre>
 <p>Resolvendo o sistema pela expressão <span class="math inline">\(\mathbf{x} = \mathbf{A}^{-1}\mathbf{b}\)</span>:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb101-1"><a href="sistemas-de-equações-lineares.html#cb101-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linalg.inv(A) <span class="op">@</span> b</span>
-<span id="cb101-2"><a href="sistemas-de-equações-lineares.html#cb101-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>## array([[0.2],
-##        [0.3],
-##        [0.6]])</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb99-1"><a href="sistemas-de-equações-lineares.html#cb99-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> A.I <span class="op">@</span> b</span>
+<span id="cb99-2"><a href="sistemas-de-equações-lineares.html#cb99-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## matrix([[0.2],
+##         [0.3],
+##         [0.6]])</code></pre>
 </div>
 
 </div>

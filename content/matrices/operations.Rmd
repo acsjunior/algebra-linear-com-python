@@ -27,7 +27,7 @@ Construindo a matriz $\mathbf{A}$:
 ```{python}
 import numpy as np
 
-A = np.array([[1,2], [3,4], [5,6], [7,8]])
+A = np.matrix([[1,2], [3,4], [5,6], [7,8]])
 A
 ```
 
@@ -82,10 +82,10 @@ Construindo as matrizes $\mathbf{A}$ e $\mathbf{B}$:
 ```{python}
 import numpy as np
 
-A = np.array([[1,2], [3,4]])
+A = np.matrix([[1,2], [3,4]])
 A
 
-B = np.array([[5,6], [7,8]])
+B = np.matrix([[5,6], [7,8]])
 B
 ```
 
@@ -208,13 +208,13 @@ Construindo as matrizes $\mathbf{A}$, $\mathbf{B}$ e $\mathbf{C}$:
 ```{python}
 import numpy as np
 
-A = np.array([[1,2], [3,4], [5,6], [7,8]])
+A = np.matrix([[1,2], [3,4], [5,6], [7,8]])
 A
 
-B = np.array([[1,2,3], [4,5,6]])
+B = np.matrix([[1,2,3], [4,5,6]])
 B
 
-C = np.array([[1,5], [2,6], [3,7], [4,8]])
+C = np.matrix([[1,5], [2,6], [3,7], [4,8]])
 C
 ```
 
@@ -232,6 +232,8 @@ np.matmul(A,B)
 A @ B
 
 np.dot(A, B)
+
+A * B
 ```
 
 Verificando se o produto $\mathbf{BA}$ existe:
@@ -251,8 +253,6 @@ np.dot(2, A)
 
 Efetuando $A \odot \mathbf{C}$:
 ```{python}
-A * C
-
 np.multiply(A, C)
 ```
 :::

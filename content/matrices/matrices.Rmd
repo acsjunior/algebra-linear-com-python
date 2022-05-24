@@ -58,10 +58,10 @@ Construindo as matrizes $\mathbf{A}$ e $\mathbf{B}$:
 ```{python Intro}
 import numpy as np
 
-A = np.array([[1,2,3], [4,5,6]])
+A = np.matrix([[1,2,3], [4,5,6]])
 A
 
-B = np.array([[7,0], [1,-1], [11, -3], [4,6]])
+B = np.matrix([[7,0], [1,-1], [11, -3], [4,6]])
 B
 ```
 
